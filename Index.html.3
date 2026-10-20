@@ -1,1 +1,63 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1: Change Color</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f0f2f5;
+    }
+    #colorBtn {
+      padding: 16px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffffff;
+      background-color: #2563eb;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    #colorCode {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="colorBtn">Click Me to Change Color</button>
+  <p id="colorCode">Current Color: #2563eb</p>
+
+  <script>
+    const btn = document.getElementById('colorBtn');
+    const colorText = document.getElementById('colorCode');
+
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    btn.addEventListener('click', () => {
+      const newColor = getRandomColor();
+      btn.style.backgroundColor = newColor;
+      colorText.textContent = 'Current Color: ' + newColor;
+    });
+  </script>
+
+</body>
+</html>
